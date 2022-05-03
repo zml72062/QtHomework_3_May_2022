@@ -2,6 +2,7 @@
 #include <QApplication>
 
 // Hello World! by zml72062
+// Hello worlddddddd
 
 int main(int argc, char *argv[])
 {
