@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "levels.h"
 #include <QFont>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -6,7 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
       widget(new QWidget),
       gameTitle(new QLabel(this)),
       mainButton(new QPushButton(this)),
-      exitButton(new QPushButton(this))
+      exitButton(new QPushButton(this)),
+      levelList(nullptr)
 {
     setCentralWidget(widget);
     QGridLayout* gridLayout=new QGridLayout(this);
@@ -45,10 +47,13 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::selectLevels()
 {
-
+    levelList=new Levels;
+    levelList->show();
+    return;
 }
 
 MainWindow::~MainWindow()
 {
     delete widget;
+    delete levelList;
 }

@@ -20,6 +20,7 @@ private slots:
     void selectLevels();
 
 private:
+    QWidget* levelList;
     QWidget* widget;
     QLabel* gameTitle;
     QPushButton* mainButton;
