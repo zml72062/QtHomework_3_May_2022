@@ -2,21 +2,28 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-namespace Ui {
-class MainWindow;
-}
+#include <QLabel>
+#include <QPushButton>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QWidget>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    MainWindow(QWidget *parent = 0);
+    virtual ~MainWindow();
+
+private slots:
+    void selectLevels();
 
 private:
-    Ui::MainWindow *ui;
+    QWidget* widget;
+    QLabel* gameTitle;
+    QPushButton* mainButton;
+    QPushButton* exitButton;
 };
 
 #endif // MAINWINDOW_H

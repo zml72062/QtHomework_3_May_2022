@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2022-05-03T21:11:45
+# Project created by QtCreator 2022-06-27T17:56:13
 #
 #-------------------------------------------------
 
@@ -11,10 +11,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QT
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    levels.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    levels.h
 
-FORMS    += mainwindow.ui
+RESOURCES += \
+    resource/resources.qrc
