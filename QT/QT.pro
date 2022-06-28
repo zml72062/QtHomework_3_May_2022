@@ -13,10 +13,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    levels.cpp
+    levels.cpp \
+    gamelevel.cpp
 
 HEADERS  += mainwindow.h \
-    levels.h
+    levels.h \
+    gamelevel.h \
+    util.h
 
 RESOURCES += \
     resource/resources.qrc
