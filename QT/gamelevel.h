@@ -25,6 +25,7 @@ private:
     int mapHeight;
     int mapWidth;
     char** gameMap;
+    QPushButton*** buttons;
     QProgressBar* bar;
     std::deque<Enemy>* enemyList;
 };
