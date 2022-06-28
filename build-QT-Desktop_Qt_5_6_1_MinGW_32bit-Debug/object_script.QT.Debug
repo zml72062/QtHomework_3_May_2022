@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\levels.o
+./debug\gamelevel.o
+./debug\mybutton.o
+./debug\qrc_resources.o
+./debug\moc_mainwindow.o
+./debug\moc_levels.o
+./debug\moc_gamelevel.o
+./debug\moc_mybutton.o
+);

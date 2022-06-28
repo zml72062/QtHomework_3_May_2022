@@ -1,6 +1,7 @@
 #include "levels.h"
 #include <QFont>
 #include <QICon>
+#include "gamelevel.h"
 
 Levels::Levels(QWidget *parent):
     QDialog(parent),
@@ -88,7 +89,43 @@ Levels::Levels(QWidget *parent):
 
 void Levels::gotoLevel1()
 {
-
+    char map[8][13]={"AAAAAAAAAAAA",
+                     "RRTRRRAAAARR",
+                     "AAAAARAAAATA",
+                     "AAAAARAAAARA",
+                     "AAAAARAAAARA",
+                     "AAAAARAAAARA",
+                     "AAAAARAAAARA",
+                     "AAAAARTRTRRA"};
+    for(int i=0;i<8;++i)
+    {
+        if(i==1)
+        {
+            map[i][12]='E';
+        }
+        else
+        {
+            map[i][12]='A';
+        }
+    }
+    char** myMap=new char*[8];
+    for(int i=0;i<8;++i)
+    {
+        myMap[i]=new char[13];
+        for(int j=0;j<13;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(8,13,myMap,18,this);
+    level1->setWindowTitle("大一上学期");
+    level1->show();
+    for(int i=0;i<8;++i)
+    {
+        delete[] myMap[i];
+    }
+    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel2()

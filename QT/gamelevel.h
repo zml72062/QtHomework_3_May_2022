@@ -14,7 +14,7 @@ class GameLevel: public QDialog
     Q_OBJECT
 
 public:
-    GameLevel(int mapWidth, int mapHeight, int numOfEnemies, QWidget *parent=nullptr);
+    GameLevel(int height,int width, char** map, int enemyNum, QWidget* parent=nullptr);
     virtual ~GameLevel();
 
 private slots:
@@ -24,10 +24,18 @@ signals:
 private:
     int mapHeight;
     int mapWidth;
+    int numOfEnemies;
+    int numOfEnemiesKilled;
+    double GPA;
+    const int kindOfAttack=5;
     char** gameMap;
     QPushButton*** buttons;
+    QPushButton** attack;
     QProgressBar* bar;
-    std::deque<Enemy>* enemyList;
+    QGridLayout* gridLayout;
+    QVBoxLayout* layout;
+    QLabel* comment;
+    QLabel** attackCost;
 };
 
 
