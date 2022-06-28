@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include "gamelevel.h"
 
 class DropButton: public QPushButton
 {
@@ -13,6 +14,7 @@ public:
     virtual ~DropButton(){}
     virtual void dragEnterEvent(QDragEnterEvent *event);
     virtual void dropEvent(QDropEvent* event);
+    GameLevel* parent;
 };
 
 class DragButton: public QPushButton
@@ -23,6 +25,7 @@ public:
     DragButton(const QString& text, QWidget* parent=nullptr);
     virtual ~DragButton(){}
     virtual void mouseMoveEvent(QMouseEvent* event);
+    GameLevel* parent;
 };
 
 #endif // MYBUTTON_H

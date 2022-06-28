@@ -9,6 +9,9 @@
 #include <QProgressBar>
 #include "util.h"
 
+class DropButton;
+class DragButton;
+
 class GameLevel: public QDialog
 {
     Q_OBJECT
@@ -16,6 +19,8 @@ class GameLevel: public QDialog
 public:
     GameLevel(int height,int width, char** map, int enemyNum, QWidget* parent=nullptr);
     virtual ~GameLevel();
+    friend class DropButton;
+    friend class DragButton;
 
 private slots:
 
@@ -26,7 +31,7 @@ private:
     int mapWidth;
     int numOfEnemies;
     int numOfEnemiesKilled;
-    double GPA;
+    int GPATimesTen;
     const int kindOfAttack=5;
     char** gameMap;
     QPushButton*** buttons;
@@ -35,6 +40,7 @@ private:
     QGridLayout* gridLayout;
     QVBoxLayout* layout;
     QLabel* comment;
+    QLabel* GPAComment;
     QLabel** attackCost;
 };
 

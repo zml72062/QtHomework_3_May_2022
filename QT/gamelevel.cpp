@@ -2,6 +2,7 @@
 #include <QFont>
 #include <QPalette>
 #include "mybutton.h"
+#include <string>
 
 GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *parent)
     :QDialog(parent)
@@ -11,7 +12,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     this->mapWidth=width;
     this->gameMap=map;
     this->numOfEnemiesKilled=0;
-    this->GPA=4.0;
+    this->GPATimesTen=40;
 
     setFixedSize(900,700);
 
@@ -59,9 +60,16 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     // 初始化进度条
     bar=new QProgressBar(this);
     bar->setValue(0);
-
+    bar->resize(200,30);
+    bar->move(600,50);
+    bar->setTextVisible(false);
 
     // 初始化标签
+    GPAComment=new QLabel(this);
+    GPAComment->setText(tr(std::string("剩余 GPA: "+std::to_string(GPATimesTen/10)+'.'+std::to_string(GPATimesTen%10)).c_str()));
+    GPAComment->setFont(QFont("Microsoft YaHei",15,36));
+    GPAComment->move(50,30);
+    GPAComment->resize(200,50);
     comment=new QLabel(this);
     comment->setText("费用: ");
     comment->setFont(QFont("Microsoft YaHei",10,25));
@@ -123,11 +131,6 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
 
 
     setLayout(layout);
-
-
-
-
-
 }
 
 
