@@ -10,9 +10,14 @@ EnemyBase::EnemyBase(std::deque<Coordinate> &myListOfCoordinates, QWidget *paren
     position.y=listOfCoordinates.front().y;
     listOfCoordinates.pop_front();
     direction=findNewDirection();
+    connect(this, &EnemyBase::reached, this, &EnemyBase::beAttacked);
+    connect(this, &EnemyBase::die, dynamic_cast<GameLevel*>(parent), &GameLevel::clear);
+    connect(this, &EnemyBase::reached, dynamic_cast<GameLevel*>(parent), &GameLevel::clearIcon);
 }
 
 EnemyBase::~EnemyBase() {}
+
+
 
 Coordinate EnemyBase::findNewDirection()//选择敌人接下来的行进方向
 {
@@ -32,9 +37,6 @@ Coordinate EnemyBase::findNewDirection()//选择敌人接下来的行进方向
 void EnemyBase::move()//敌人走一步
 {
     if(listOfCoordinates.empty()) return;
-//    std::cout<<position.x<<" "<<position.y<<std::endl;
-//    std::cout<<direction.x<<" "<<direction.y<<std::endl;
-//    std::cout<<listOfCoordinates.front().x<<" "<<listOfCoordinates.front().y<<std::endl;
     if(direction.x>0){
         position.x+=speed;
         if(position.x>listOfCoordinates.front().x){
@@ -65,12 +67,21 @@ void EnemyBase::move()//敌人走一步
     }
     if(position==listOfCoordinates.front())
     {
-        qDebug()<<position.x<<position.y;
         listOfCoordinates.pop_front();
         direction=findNewDirection();
-        if(parent->gameMap[static_cast<int>(position.x)][static_cast<int>(position.y)]=='T')
+        int a=round(position.x);
+        int b=round(position.y);
+        if(a>=parent->mapWidth)a=parent->mapWidth-1;
+        if(a<0) a=0;
+        if(b>=parent->mapHeight)b=parent->mapHeight-1;
+        if(b<0)b=0;
+        if(parent->gameMap[a][b]=='T')
         {
-            emit reached(static_cast<int>(position.x),static_cast<int>(position.y));
+            emit reached(a,b);
+        }
+        else if(parent->gameMap[a][b]=='E')
+        {
+            emit attacked(a,b);
         }
     }
 

@@ -18,6 +18,7 @@ public:
     EnemyBase(std::deque<Coordinate>& myListOfCoordinates, QWidget* parent=nullptr);
     virtual ~EnemyBase();
     void move();
+    int type;
     int totalHealth;
     int currentHealth;
     double speed; // how many blocks
@@ -34,6 +35,10 @@ public:
 
 signals:
     void reached(int, int);
+    void attacked(int,int);
+    void die(int,int,int);
+public slots:
+    virtual void beAttacked(int,int)=0;
 
 private:
     Coordinate findNewDirection();

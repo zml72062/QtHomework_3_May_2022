@@ -8,6 +8,8 @@ class Enemy2 : public EnemyBase
 {
 public:
     Enemy2(std::deque<Coordinate>& list,QWidget* parent=nullptr);
+public slots:
+    virtual void beAttacked(int,int);
 };
 
 #endif // ENEMY2_H
