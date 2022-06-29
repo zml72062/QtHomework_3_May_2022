@@ -15,13 +15,19 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     levels.cpp \
     gamelevel.cpp \
-    mybutton.cpp
+    mybutton.cpp \
+    enemy.cpp \
+    enemy1.cpp \
+    enemy2.cpp
 
 HEADERS  += mainwindow.h \
     levels.h \
     gamelevel.h \
     util.h \
-    mybutton.h
+    mybutton.h \
+    enemy.h \
+    enemy1.h \
+    enemy2.h
 
 RESOURCES += \
     resource/resources.qrc
