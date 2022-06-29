@@ -51,10 +51,12 @@ public:
     void produceEnemy();
     void paintEvent(QPaintEvent*);
 
-private slots:
-
+public slots:
+    void clear(int,int,int);
+    void clearIcon(int,int);
+    void commentWin();
 signals:
-
+    void win();
 private:
     void generateStarts()
     {
@@ -107,6 +109,28 @@ private:
                 movePaths.back()[l-1]=st.top();
                 st.pop();
             }
+            if(movePaths.back()[q-1].x==movePaths.back()[q-2].x)
+            {
+                if(movePaths.back()[q-1].y-movePaths.back()[q-2].y>0)
+                {
+                    movePaths.back().push_back({movePaths.back()[q-1].x,movePaths.back()[q-1].y+1});
+                }
+                else
+                {
+                    movePaths.back().push_back({movePaths.back()[q-1].x,movePaths.back()[q-1].y-1});
+                }
+            }
+            else
+            {
+                if(movePaths.back()[q-1].x-movePaths.back()[q-2].x>0)
+                {
+                    movePaths.back().push_back({movePaths.back()[q-1].x+1,movePaths.back()[q-1].y});
+                }
+                else
+                {
+                    movePaths.back().push_back({movePaths.back()[q-1].x-1,movePaths.back()[q-1].y});
+                }
+            }
             for(int i=0;i<mapHeight;++i)
             {
                 delete[] visited[i];
@@ -114,17 +138,19 @@ private:
             delete[] visited;
         }
     }
-
+public:
     int mapHeight;
     int mapWidth;
     int numOfEnemies;
     int numOfEnemiesKilled;
     int GPATimesTen;
     const int kindOfAttack=5;
-
+private:
     std::deque<Coordinate> startPoints;
     std::deque<std::deque<Coordinate>> movePaths;
+public:
     QPushButton*** buttons;
+private:
     QPushButton** attack;
     QProgressBar* bar;
     QGridLayout* gridLayout;

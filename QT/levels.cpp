@@ -90,13 +90,14 @@ Levels::Levels(QWidget *parent):
 void Levels::gotoLevel1()
 {
     char map[8][13]={"AAAAAAAAAAAA",
-                     "RRTRRRAAAARR",
+                     "RRRRRRAAAARR",
                      "AAAAARAAAATA",
                      "AAAAARAAAARA",
                      "AAAAARAAAARA",
                      "AAAAARAAAARA",
-                     "AAAAARAAAARA",
-                     "AAAAARTRTRRA"};
+                     "AAAAARTRTRRA",
+                     "AAAAAAAAAAAA"}
+                     ;
     for(int i=0;i<8;++i)
     {
         if(i==1)
@@ -117,7 +118,7 @@ void Levels::gotoLevel1()
             myMap[i][j]=map[i][j];
         }
     }
-    GameLevel* level1=new GameLevel(8,13,myMap,18,this);
+    GameLevel* level1=new GameLevel(8,13,myMap,5,this);
     level1->setWindowTitle("大一上学期");
     level1->show();
     for(int i=0;i<8;++i)

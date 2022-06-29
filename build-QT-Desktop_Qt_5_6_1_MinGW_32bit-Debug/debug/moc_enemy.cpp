@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_EnemyBase_t {
-    QByteArrayData data[3];
-    char stringdata0[19];
+    QByteArrayData data[6];
+    char stringdata0[43];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,10 +31,14 @@ static const qt_meta_stringdata_EnemyBase_t qt_meta_stringdata_EnemyBase = {
     {
 QT_MOC_LITERAL(0, 0, 9), // "EnemyBase"
 QT_MOC_LITERAL(1, 10, 7), // "reached"
-QT_MOC_LITERAL(2, 18, 0) // ""
+QT_MOC_LITERAL(2, 18, 0), // ""
+QT_MOC_LITERAL(3, 19, 8), // "attacked"
+QT_MOC_LITERAL(4, 28, 3), // "die"
+QT_MOC_LITERAL(5, 32, 10) // "beAttacked"
 
     },
-    "EnemyBase\0reached\0"
+    "EnemyBase\0reached\0\0attacked\0die\0"
+    "beAttacked"
 };
 #undef QT_MOC_LITERAL
 
@@ -44,17 +48,27 @@ static const uint qt_meta_data_EnemyBase[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   19,    2, 0x06 /* Public */,
+       1,    2,   34,    2, 0x06 /* Public */,
+       3,    2,   39,    2, 0x06 /* Public */,
+       4,    3,   44,    2, 0x06 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags
+       5,    2,   51,    2, 0x0a /* Public */,
 
  // signals: parameters
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,    2,    2,    2,
+
+ // slots: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
 
        0        // eod
@@ -67,6 +81,9 @@ void EnemyBase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->reached((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 1: _t->attacked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 2: _t->die((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 3: _t->beAttacked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -76,6 +93,20 @@ void EnemyBase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             typedef void (EnemyBase::*_t)(int , int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&EnemyBase::reached)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            typedef void (EnemyBase::*_t)(int , int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&EnemyBase::attacked)) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            typedef void (EnemyBase::*_t)(int , int , int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&EnemyBase::die)) {
+                *result = 2;
                 return;
             }
         }
@@ -107,13 +138,13 @@ int EnemyBase::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
 }
@@ -123,5 +154,19 @@ void EnemyBase::reached(int _t1, int _t2)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void EnemyBase::attacked(int _t1, int _t2)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void EnemyBase::die(int _t1, int _t2, int _t3)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_END_MOC_NAMESPACE
