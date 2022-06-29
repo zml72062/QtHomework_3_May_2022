@@ -4,9 +4,13 @@ INPUT(
 ./release\levels.o
 ./release\gamelevel.o
 ./release\mybutton.o
+./release\enemy.o
+./release\enemy1.o
+./release\enemy2.o
 ./release\qrc_resources.o
 ./release\moc_mainwindow.o
 ./release\moc_levels.o
 ./release\moc_gamelevel.o
 ./release\moc_mybutton.o
+./release\moc_enemy.o
 );

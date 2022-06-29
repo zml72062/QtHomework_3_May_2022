@@ -4,9 +4,13 @@ INPUT(
 ./debug\levels.o
 ./debug\gamelevel.o
 ./debug\mybutton.o
+./debug\enemy.o
+./debug\enemy1.o
+./debug\enemy2.o
 ./debug\qrc_resources.o
 ./debug\moc_mainwindow.o
 ./debug\moc_levels.o
 ./debug\moc_gamelevel.o
 ./debug\moc_mybutton.o
+./debug\moc_enemy.o
 );

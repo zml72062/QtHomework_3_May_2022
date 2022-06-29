@@ -32,6 +32,8 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
         // 2 应改为怪的种类数
         int next=static_cast<int>(2*u(rng));
         int nextEntry=static_cast<int>(startPoints.size()*u(rng));
+        qDebug()<<startPoints.size();
+//        int nextEntry=static_cast<int>(0);
         if(next==0)
         {
             p=new Enemy1(movePaths[nextEntry],this);
@@ -65,6 +67,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
                 buttons[i][j]->setPalette(q);
                 buttons[i][j]->setStyleSheet("background-color: rgb(0,0,205)");
                 buttons[i][j]->setText("R");
+                buttons[i][j]->setFlat(true);
             }
             else if(gameMap[i][j]=='T') // 可通行且可放置攻击塔
             {
@@ -159,9 +162,9 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
 
     // 设置计时器
     timerForMoving=new QTimer(this);
-    timerForMoving->start(1);
+    timerForMoving->start(30);
     timerForGenerating =  new QTimer(this);
-    timerForGenerating->start(30);
+    timerForGenerating->start(1000);
 
     connect(timerForMoving, &QTimer::timeout,this,&GameLevel::updateScene);
     connect(timerForGenerating,&QTimer::timeout,this,&GameLevel::updateGenerate);
@@ -213,7 +216,7 @@ void GameLevel::updateGenerate()
     if(!enemyWaitedList.empty())
     {
         enemyList.push_back(enemyWaitedList[0]);
-        enemyWaitedList.pop_back();
+        enemyWaitedList.pop_front();
     }
     update();
 }
@@ -224,10 +227,12 @@ void GameLevel::draw()
     for(auto& i:enemyList)
     {
         QPixmap pix;
-        pix.load(QString("../QT/resource/pics/C++Logo.png"));
+        pix.load(i->imagePath);
         int xPix=i->xPixel(i->position);
         int yPix=i->yPixel(i->position);
         painter.drawPixmap(xPix,yPix, i->parent->effWidth()/2, i->parent->effHeight()/2, pix);
+//        painter.drawPixmap(200,200, 200, 200, pix);
+
     }
 }
 

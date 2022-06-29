@@ -44,11 +44,11 @@ public:
     }
     int xPixel(Coordinate coor) const
     {
-        return coor.x*parent->effWidth()+parent->startX();
+        return coor.y*parent->effWidth()+parent->startX();
     }
     int yPixel(Coordinate coor) const
     {
-        return coor.y*parent->effHeight()+parent->startY();
+        return coor.x*parent->effHeight()+parent->startY();
     }
 };
 
