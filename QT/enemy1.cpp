@@ -31,11 +31,17 @@ void Enemy1::beAttacked(int x, int y)
     }
     else if(parent->buttons[x][y]->text()=="PE")
     {
-        speed-=0.002;
+        speed-=0.02;
     }
-    if(currentHealth==0||speed==0)
+    else if(parent->buttons[x][y]->text()=="RTE")
     {
-        imagePath="../QT/resource/pics/empty.png";
+        currentHealth=0;
+    }
+    if(currentHealth<0) currentHealth=0;
+    if(speed<0) speed=0;
+    if(currentHealth<=0.001||speed<=0.001)
+    {
+//        imagePath="../QT/resource/pics/empty.png";
         emit die(0,x,y);
     }
 }

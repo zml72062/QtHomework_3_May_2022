@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     mybutton.cpp \
     enemy.cpp \
     enemy1.cpp \
-    enemy2.cpp
+    enemy2.cpp \
+    enemy3.cpp \
+    enemy4.cpp
 
 HEADERS  += mainwindow.h \
     levels.h \
@@ -28,7 +30,9 @@ HEADERS  += mainwindow.h \
     enemy.h \
     enemy1.h \
     enemy2.h \
-    windialog.h
+    windialog.h \
+    enemy3.h \
+    enemy4.h
 
 RESOURCES += \
     resource/resources.qrc

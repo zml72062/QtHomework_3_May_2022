@@ -7,6 +7,8 @@ INPUT(
 ./release\enemy.o
 ./release\enemy1.o
 ./release\enemy2.o
+./release\enemy3.o
+./release\enemy4.o
 ./release\qrc_resources.o
 ./release\moc_mainwindow.o
 ./release\moc_levels.o

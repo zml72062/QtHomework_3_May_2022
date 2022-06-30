@@ -117,50 +117,310 @@ void Levels::gotoLevel1()
             myMap[i][j]=map[i][j];
         }
     }
-    GameLevel* level1=new GameLevel(8,13,myMap,3,this);
+    GameLevel* level1=new GameLevel(8,13,myMap,3,5000,8,this);
     level1->setWindowTitle("大一上学期");
     level1->show();
-    for(int i=0;i<8;++i)
-    {
-        delete[] myMap[i];
-    }
-    delete[] myMap;
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
     return;
 }
 
 void Levels::gotoLevel2()
 {
-
+    char map[8][13]={"AAAAAAAAAAAA",
+                     "RRRRRRAAAARR",
+                     "AAAAARAAAATA",
+                     "AAAAARAAAARA",
+                     "AAAAARAAAARA",
+                     "AAAAARAAAARA",
+                     "RRRRRRTRTRRA",
+                     "AAAAAAAAAAAA"};
+    for(int i=0;i<8;++i)
+    {
+        if(i==1)
+        {
+            map[i][12]='E';
+        }
+        else
+        {
+            map[i][12]='A';
+        }
+    }
+    char** myMap=new char*[8];
+    for(int i=0;i<8;++i)
+    {
+        myMap[i]=new char[13];
+        for(int j=0;j<13;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(8,13,myMap,5,3000,10,this);
+    level1->setWindowTitle("大一下学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel3()
 {
-
+    char map[8][13]={"AAAAAAARAAAA",
+                     "AAAAAAARAAAA",
+                     "AAAAAAARAAAA",
+                     "AATRRRRTAAAA",
+                     "AARAAAAAAAAA",
+                     "AARAAAAAAAAA",
+                     "AATRRRRTRRRR",
+                     "AAAAAAAAAAAA"};
+    for(int i=0;i<8;++i)
+    {
+        if(i==6)
+        {
+            map[i][12]='E';
+        }
+        else
+        {
+            map[i][12]='A';
+        }
+    }
+    char** myMap=new char*[8];
+    for(int i=0;i<8;++i)
+    {
+        myMap[i]=new char[13];
+        for(int j=0;j<13;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(8,13,myMap,5,2000,8,this);
+    level1->setWindowTitle("大二上学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel4()
 {
-
+    char map[8][13]={"AARAAAARAAAA",
+                     "AARAAAARAAAA",
+                     "AARAAAARAAAA",
+                     "AATRRRRTAAAA",
+                     "AARAAAAAAAAA",
+                     "AARAAAAAAAAA",
+                     "AATRRRRTRRRR",
+                     "AAAAAAAAAAAA"};
+    for(int i=0;i<8;++i)
+    {
+        if(i==6)
+        {
+            map[i][12]='E';
+        }
+        else
+        {
+            map[i][12]='A';
+        }
+    }
+    char** myMap=new char*[8];
+    for(int i=0;i<8;++i)
+    {
+        myMap[i]=new char[13];
+        for(int j=0;j<13;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(8,13,myMap,6,1500,10,this);
+    level1->setWindowTitle("大二下学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel5()
 {
-
+    char map[9][15]={"AAAAAAARAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAATAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAATRTRRTR",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAATAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAARAAAAAA",};
+    for(int i=0;i<9;++i)
+    {
+        if(i==4)
+        {
+            map[i][14]='E';
+        }
+        else
+        {
+            map[i][14]='A';
+        }
+    }
+    char** myMap=new char*[9];
+    for(int i=0;i<9;++i)
+    {
+        myMap[i]=new char[15];
+        for(int j=0;j<15;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(9,15,myMap,8,1000,10,this);
+    level1->setWindowTitle("大三上学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel6()
 {
-
+    char map[9][15]={"AAAAAAARAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAATAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "RRTRRTRTRTRRTR",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAATAAAAAA",
+                     "AAAAAAARAAAAAA",
+                     "AAAAAAARAAAAAA",};
+    for(int i=0;i<9;++i)
+    {
+        if(i==4)
+        {
+            map[i][14]='E';
+        }
+        else
+        {
+            map[i][14]='A';
+        }
+    }
+    char** myMap=new char*[9];
+    for(int i=0;i<9;++i)
+    {
+        myMap[i]=new char[15];
+        for(int j=0;j<15;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(9,15,myMap,10,800,12,this);
+    level1->setWindowTitle("大三下学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel7()
 {
-
+    char map[11][17]={"AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "AAAAAAAAAAAAAAAA",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "AAAAAAAAAAAAAAAA",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",};
+    for(int i=0;i<11;++i)
+    {
+        if(i==1||i==5||i==9)
+        {
+            map[i][16]='E';
+        }
+        else
+        {
+            map[i][16]='A';
+        }
+    }
+    char** myMap=new char*[11];
+    for(int i=0;i<11;++i)
+    {
+        myMap[i]=new char[17];
+        for(int j=0;j<17;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(11,17,myMap,12,600,12,this);
+    level1->setWindowTitle("大四上学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::gotoLevel8()
 {
-
+    char map[11][17]={"AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",
+                      "RRTTTRRRRRRTTTRR",
+                      "AAAAAAAAAAAAAAAA",};
+    for(int i=0;i<11;++i)
+    {
+        if(i==1||i==3||i==5||i==7||i==9)
+        {
+            map[i][16]='E';
+        }
+        else
+        {
+            map[i][16]='A';
+        }
+    }
+    char** myMap=new char*[11];
+    for(int i=0;i<11;++i)
+    {
+        myMap[i]=new char[17];
+        for(int j=0;j<17;++j)
+        {
+            myMap[i][j]=map[i][j];
+        }
+    }
+    GameLevel* level1=new GameLevel(11,17,myMap,15,500,10,this);
+    level1->setWindowTitle("大四下学期");
+    level1->show();
+//    for(int i=0;i<8;++i)
+//    {
+//        delete[] myMap[i];
+//    }
+//    delete[] myMap;
+    return;
 }
 
 void Levels::finishAnotherLevel()

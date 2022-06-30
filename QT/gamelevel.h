@@ -20,7 +20,7 @@ class GameLevel: public QDialog
     Q_OBJECT
 
 public:
-    GameLevel(int height,int width, char** map, int enemyNum, QWidget* parent=nullptr);
+    GameLevel(int height,int width, char** map, int enemyNum,int waitTime,int initCoin, QWidget* parent=nullptr);
     virtual ~GameLevel();
     friend class DropButton;
     friend class DragButton;

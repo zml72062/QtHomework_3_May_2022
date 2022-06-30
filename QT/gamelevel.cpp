@@ -6,13 +6,15 @@
 #include "enemy.h"
 #include "enemy1.h"
 #include "enemy2.h"
+#include "enemy3.h"
+#include "enemy4.h"
 #include <QPainter>
 #include <random>
 #include <ctime>
 #include "windialog.h"
 #include "levels.h"
 
-GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *parent)
+GameLevel::GameLevel(int height, int width, char **map, int enemyNum,int waitTime, int initCoin, QWidget *parent)
     : QDialog(parent)
 {
     this->numOfEnemies = enemyNum;
@@ -20,7 +22,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     this->mapWidth = width;
     this->gameMap = map;
     this->numOfEnemiesKilled = 0;
-    this->GPATimesTen = 80;
+    this->GPATimesTen = 10*initCoin;
     enemyWaitedList = std::deque<EnemyBase *>(enemyNum, nullptr);
     generateStarts();
     generatePaths();
@@ -31,8 +33,8 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     std::uniform_real_distribution<> u(0, 1);
     for (auto &p : enemyWaitedList)
     {
-        // 2 应改为怪的种类数
-        int next = static_cast<int>(2 * u(rng));
+        // 4 应改为怪的种类数
+        int next = static_cast<int>(4 * u(rng));
         int nextEntry = static_cast<int>(startPoints.size() * u(rng));
         if (next == 0)
         {
@@ -41,6 +43,14 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
         else if (next == 1)
         {
             p = new Enemy2(movePaths[nextEntry], this);
+        }
+        else if (next == 2)
+        {
+            p = new Enemy3(movePaths[nextEntry], this);
+        }
+        else if (next == 3)
+        {
+            p = new Enemy4(movePaths[nextEntry], this);
         }
     }
 
@@ -160,7 +170,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     timerForMoving = new QTimer(this);
     timerForMoving->start(30);
     timerForGenerating = new QTimer(this);
-    timerForGenerating->start(5000);
+    timerForGenerating->start(waitTime);
     enemyInvaded=0;
 
     connect(timerForMoving, &QTimer::timeout, this, &GameLevel::updateScene);
@@ -234,11 +244,13 @@ void GameLevel::draw()
 
 void GameLevel::clear(int type, int x, int y)
 {
+    qDebug()<<"clear";
     for (auto p = enemyList.begin(); p != enemyList.end(); ++p)
     {
-        if ((*p)->position.x == x && (*p)->position.y == y && (*p)->type == type)
+        if ((int)((*p)->position.x+0.001) == x && (int)((*p)->position.y+0.001) == y && (*p)->type == type&&((*p)->currentHealth<=0.001||(*p)->speed<=0.001))
         {
-            p = enemyList.erase(p);
+             enemyList.erase(p);
+             qDebug()<<"die";
             break;
         }
     }
