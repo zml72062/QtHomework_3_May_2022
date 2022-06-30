@@ -96,8 +96,7 @@ void Levels::gotoLevel1()
                      "AAAAARAAAARA",
                      "AAAAARAAAARA",
                      "AAAAARTRTRRA",
-                     "AAAAAAAAAAAA"}
-                     ;
+                     "AAAAAAAAAAAA"};
     for(int i=0;i<8;++i)
     {
         if(i==1)
@@ -118,7 +117,7 @@ void Levels::gotoLevel1()
             myMap[i][j]=map[i][j];
         }
     }
-    GameLevel* level1=new GameLevel(8,13,myMap,5,this);
+    GameLevel* level1=new GameLevel(8,13,myMap,3,this);
     level1->setWindowTitle("大一上学期");
     level1->show();
     for(int i=0;i<8;++i)

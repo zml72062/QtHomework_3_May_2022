@@ -35,7 +35,7 @@ public:
 
 signals:
     void reached(int, int);
-    void attacked(int,int);
+    void attacked();
     void die(int,int,int);
 public slots:
     virtual void beAttacked(int,int)=0;

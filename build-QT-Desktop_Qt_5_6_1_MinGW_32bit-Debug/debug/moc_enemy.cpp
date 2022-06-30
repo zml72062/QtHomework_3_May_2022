@@ -57,15 +57,15 @@ static const uint qt_meta_data_EnemyBase[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    2,   34,    2, 0x06 /* Public */,
-       3,    2,   39,    2, 0x06 /* Public */,
-       4,    3,   44,    2, 0x06 /* Public */,
+       3,    0,   39,    2, 0x06 /* Public */,
+       4,    3,   40,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    2,   51,    2, 0x0a /* Public */,
+       5,    2,   47,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,    2,    2,    2,
 
  // slots: parameters
@@ -81,7 +81,7 @@ void EnemyBase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->reached((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 1: _t->attacked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 1: _t->attacked(); break;
         case 2: _t->die((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 3: _t->beAttacked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
@@ -97,7 +97,7 @@ void EnemyBase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
-            typedef void (EnemyBase::*_t)(int , int );
+            typedef void (EnemyBase::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&EnemyBase::attacked)) {
                 *result = 1;
                 return;
@@ -157,10 +157,9 @@ void EnemyBase::reached(int _t1, int _t2)
 }
 
 // SIGNAL 1
-void EnemyBase::attacked(int _t1, int _t2)
+void EnemyBase::attacked()
 {
-    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
-    QMetaObject::activate(this, &staticMetaObject, 1, _a);
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 
 // SIGNAL 2

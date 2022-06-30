@@ -71,9 +71,9 @@ void EnemyBase::move()//敌人走一步
         direction=findNewDirection();
         int a=round(position.x);
         int b=round(position.y);
-        if(a>=parent->mapWidth)a=parent->mapWidth-1;
+        if(a>=parent->mapHeight)a=parent->mapHeight-1;
         if(a<0) a=0;
-        if(b>=parent->mapHeight)b=parent->mapHeight-1;
+        if(b>=parent->mapWidth)b=parent->mapWidth-1;
         if(b<0)b=0;
         if(parent->gameMap[a][b]=='T')
         {
@@ -81,7 +81,7 @@ void EnemyBase::move()//敌人走一步
         }
         else if(parent->gameMap[a][b]=='E')
         {
-            emit attacked(a,b);
+            emit attacked();
         }
     }
 

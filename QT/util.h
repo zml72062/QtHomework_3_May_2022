@@ -16,7 +16,7 @@ struct Coordinate
     }
     bool operator==(const Coordinate& right) const
     {
-        return abs(x-right.x)<0.000001&&abs(y-right.y)<0.000001;
+        return x-right.x<0.001&&y-right.y<0.001&&x-right.x>-0.001&&y-right.y>-0.001;
     }
 };
 

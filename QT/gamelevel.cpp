@@ -9,6 +9,8 @@
 #include <QPainter>
 #include <random>
 #include <ctime>
+#include "windialog.h"
+#include "levels.h"
 
 GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *parent)
     : QDialog(parent)
@@ -18,7 +20,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     this->mapWidth = width;
     this->gameMap = map;
     this->numOfEnemiesKilled = 0;
-    this->GPATimesTen = 40;
+    this->GPATimesTen = 80;
     enemyWaitedList = std::deque<EnemyBase *>(enemyNum, nullptr);
     generateStarts();
     generatePaths();
@@ -89,7 +91,7 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     bar->resize(200, 30);
     bar->move(600, 50);
     bar->setTextVisible(false);
-
+    this->parent=dynamic_cast<QDialog*>(parent);
     // 初始化标签
     GPAComment = new QLabel(this);
     GPAComment->setText(tr(std::string("剩余 GPA: " + std::to_string(GPATimesTen / 10) + '.' + std::to_string(GPATimesTen % 10)).c_str()));
@@ -159,10 +161,12 @@ GameLevel::GameLevel(int height, int width, char **map, int enemyNum, QWidget *p
     timerForMoving->start(30);
     timerForGenerating = new QTimer(this);
     timerForGenerating->start(5000);
+    enemyInvaded=0;
 
     connect(timerForMoving, &QTimer::timeout, this, &GameLevel::updateScene);
     connect(timerForGenerating, &QTimer::timeout, this, &GameLevel::updateGenerate);
-
+    connect(this, &GameLevel::win, this, &GameLevel::commentWin);
+    connect(this, &GameLevel::win, dynamic_cast<Levels*>(this->parent), &Levels::finishAnotherLevel);
     //    connect(enemyList[0],&EnemyBase::reached, this, &GameLevel::close);
 
     setLayout(layout);
@@ -266,4 +270,8 @@ void GameLevel::clearIcon(int x, int y)
 
 void GameLevel::commentWin()
 {
+    winDialog* win=new winDialog(this);
+    win->setModal(true);
+    win->show();
 }
+

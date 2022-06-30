@@ -27,7 +27,8 @@ HEADERS  += mainwindow.h \
     mybutton.h \
     enemy.h \
     enemy1.h \
-    enemy2.h
+    enemy2.h \
+    windialog.h
 
 RESOURCES += \
     resource/resources.qrc

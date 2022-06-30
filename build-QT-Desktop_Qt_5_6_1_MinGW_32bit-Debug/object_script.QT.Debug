@@ -13,4 +13,5 @@ INPUT(
 ./debug\moc_gamelevel.o
 ./debug\moc_mybutton.o
 ./debug\moc_enemy.o
+./debug\moc_windialog.o
 );

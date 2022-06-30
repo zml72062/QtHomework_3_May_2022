@@ -16,7 +16,7 @@ public:
     Levels(QWidget* parent=nullptr);
     virtual ~Levels();
 
-private slots:
+public slots:
     void gotoLevel1();
     void gotoLevel2();
     void gotoLevel3();

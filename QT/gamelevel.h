@@ -145,6 +145,7 @@ public:
     int numOfEnemiesKilled;
     int GPATimesTen;
     const int kindOfAttack=5;
+    int enemyInvaded;
 private:
     std::deque<Coordinate> startPoints;
     std::deque<std::deque<Coordinate>> movePaths;
@@ -162,6 +163,7 @@ private:
     QLabel* comment;
     QLabel* GPAComment;
     QLabel** attackCost;
+    QDialog* parent;
 };
 
 

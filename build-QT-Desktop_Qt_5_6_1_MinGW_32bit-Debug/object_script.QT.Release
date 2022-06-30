@@ -13,4 +13,5 @@ INPUT(
 ./release\moc_gamelevel.o
 ./release\moc_mybutton.o
 ./release\moc_enemy.o
+./release\moc_windialog.o
 );
